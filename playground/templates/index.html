@@ -1,0 +1,61 @@
+<!--
+Display a welcome message
+
+Lists all current courses in the database
+
+When a user clicks a course from the list it should be redirected to the route
+/register_student/<int:course_id>
+
+Provide a form for the user to add new course
+
+When a user submit this form it should be redirected to the route
+/add_course
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Webpage tab Title -->
+    <title>Course List</title>
+  </head>
+
+  <body>
+    <!-- Heading (font size 1 (biggest)): Welcome message -->
+    <h1>Welcome!</h1>
+
+    <!-- Heading (font size 2): Course List -->
+    <h2>Course List: </h2>
+
+    <!-- Table column headings -->
+    <table border="1">
+      <thread>
+        <tr>
+          <td>ID</td>
+          <td>Course Number</td>
+          <td>Course Title</td>
+        </tr>
+      </thread>
+
+      <!-- Fill in table -->
+      <tr>
+        <td>{{course_id}}</td>
+        <td>{{course_number}}</td>
+        <!-- how do I get course_title to show up on button? -->
+        <td><button type="button" oneclick="revealMessage()">{{course_title}}</button></td>
+        <!-- clicking on button takes you to link -->
+        <script src="/register_student/<int:course_id>"></script>
+      </tr>
+    </table>
+
+    <!-- Heading: Add Course -->
+    <h2>Add Course: </h2>
+    <form action='/add_course' method='POST'>
+      Course Title:<br>
+      <input name="course_title" type="text"><br>
+      Course Number:<br>
+      <input name="course_number" type="text"><br>
+      <input type="submit" value="Submit">
+    </form>
+
+  </body>
+</html>
